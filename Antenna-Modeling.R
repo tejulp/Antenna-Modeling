@@ -1,6 +1,6 @@
 install.packages('caret')
 install.packages('e1071')
-library(caret)   # Create Data Partition function
+library(caret)   # Used to create Data Partition function
 library(e1071)
 #Reading csv file and pre-processing 
 data_antenna <- read.csv("BDA_Project_Final.csv")
@@ -30,15 +30,14 @@ View(testing_antenna)
 
 dim(training_antenna)
 dim(testing_antenna)
-#Linear regression
 
+#Linear regression
 model <- lm(gain ~ g1 + ringx + t + y1 + freq, training_antenna)
 
 # Forecasted gain
 forecast.gain <- predict(model,data=testing_antenna)
 
 # R Square of a Regression Model
-
 summary(model)$r.squared
 
 summary(model)$adj.r.squared
